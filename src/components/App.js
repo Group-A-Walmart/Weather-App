@@ -28,8 +28,8 @@ function App() {
     <div className="App">
       <DayView/>
       <SearchBar
+        handleStateChange={handleStateChange}
         handleCityChange={handleCityChange}
-        // handleStateChange={handleStateChange}
         handleKeyDown={handleKeyDown}
         city={city}
         state={state}
