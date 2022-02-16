@@ -9,6 +9,7 @@ import { getWeather } from '../api';
 function App() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const [temp, setTemp] = useState(0.0);
 
   const handleCityChange = (e) => {
     setCity(e.target.value);
@@ -18,9 +19,11 @@ function App() {
       setState(e.target.value);
   }
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = async(e) => {
       if (e.keyCode === 13) {
-          getWeather(city, state);
+          const weatherData = await getWeather(city,state);
+          setTemp(weatherData.data.main.temp);
+          console.log(temp);
       }
   }
 
