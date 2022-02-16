@@ -6,14 +6,33 @@ export const getWeather = async (city) => {
     let long;
     let lat;
     let weatherObj = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`)
-    .then(res => {
-        console.log(res)
-        long = res.data[0].lon;
-        lat = res.data[0].lat;
-    })
+        .then(res => {
+            // console.log(res)
+            long = res.data[0].lon;
+            lat = res.data[0].lat;
+        })
 
-    let weatherInfo = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}`)
-    .then(res => {
-        console.log(res);
-    })
+    return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}`)
+        .then(res => {
+            return res.data
+        });
+}
+
+export const getWeeklyWeather = async (city) => {
+    let long;
+    let lat;
+    let cityName;
+    let state;
+
+    let weatherObj = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`)
+        .then(res => {
+            long = res.data[0].lon;
+            lat = res.data[0].lat;
+            cityName = res.data[0].name;
+            state = res.data[0].state;
+        });
+
+    return axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${API_KEY}`)
+        .then(res => ({...res.data, state, cityName}))
+
 }
