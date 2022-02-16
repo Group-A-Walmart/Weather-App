@@ -25,8 +25,8 @@ function App() {
   return (
     <div className="App">
       <SearchBar
+        handleStateChange={handleStateChange}
         handleCityChange={handleCityChange}
-        // handleStateChange={handleStateChange}
         handleKeyDown={handleKeyDown}
         city={city}
         state={state}
