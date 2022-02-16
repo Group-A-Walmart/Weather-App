@@ -1,6 +1,6 @@
 import React from 'react';
 import clouds from '../images/clouds.jpg';
-import './DayView.css';
+import '../styles/DayView.css';
 
 
 const DayView = (props) => {
