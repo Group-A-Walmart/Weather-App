@@ -1,5 +1,5 @@
+import { useState } from 'react';
 import "../styles/App.css";
-import { useState} from 'react';
 import { getWeather, getWeeklyWeather } from '../api';
 import SearchBar from "./SearchBar";
 import WeeklyView from "./WeeklyView";
