@@ -26,7 +26,6 @@ function App() {
 
   return (
     <div className="App">
-      <DayView/>
       <SearchBar
         handleStateChange={handleStateChange}
         handleCityChange={handleCityChange}
@@ -34,6 +33,7 @@ function App() {
         city={city}
         state={state}
       />
+      <DayView/>
       <Toggle />
     </div>
   );
