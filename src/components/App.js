@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import "../styles/App.css";
 import SearchBar from "./SearchBar";
+import DayView from "./DayView";
 import Toggle from "./Toggle";
 import { getWeather } from '../api';
+
 
 function App() {
   const [city, setCity] = useState("");
@@ -24,6 +26,7 @@ function App() {
 
   return (
     <div className="App">
+      <DayView/>
       <SearchBar
         handleCityChange={handleCityChange}
         // handleStateChange={handleStateChange}

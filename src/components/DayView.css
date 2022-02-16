@@ -1,0 +1,33 @@
+.day-view {
+  position: relative;
+  margin: auto;
+  margin-top: 40px;
+  width: 80%;
+  height: 400px;
+  background-color: black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  color: white;
+  position: absolute;
+  bottom: 25%;
+  left: 15%;
+}
+
+h2 {
+  color: white;
+  position: absolute;
+  bottom: 15%;
+  left: 15%;
+}
