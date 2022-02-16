@@ -9,7 +9,10 @@ import { getWeather } from '../api';
 function App() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const [isWeeklyView, setWeeklyView] = useState(false);
+  const _toggleWeeklyView = () => setWeeklyView(!isWeeklyView);
   const [temp, setTemp] = useState(0.0);
+
 
   const handleCityChange = (e) => {
     setCity(e.target.value);
@@ -26,6 +29,10 @@ function App() {
           console.log(temp);
       }
   }
+  
+  const handleToggle = () => {
+    console.log("hello");
+  }
 
   return (
     <div className="App">
@@ -36,8 +43,10 @@ function App() {
         city={city}
         state={state}
       />
-      <DayView/>
-      <Toggle />
+      {isWeeklyView ? 
+      <div>Weekly View</div> :
+      <DayView/>}
+      <Toggle handleToggle={_toggleWeeklyView}/>
     </div>
   );
 }
