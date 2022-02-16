@@ -2,10 +2,11 @@ const axios = require('axios');
 
 export const API_KEY = '8d82379ea4c7f79c928129f715fd5e78';
 
-export const getWeather = async (city) => {
+export const getWeather = async (city, state) => {
+    console.log('state: ' + state);
     let long;
     let lat;
-    let weatherObj = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`)
+    let weatherObj = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},&limit=5&appid=${API_KEY}`)
     .then(res => {
         console.log(res)
         long = res.data[0].lon;
