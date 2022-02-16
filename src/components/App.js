@@ -41,8 +41,8 @@ function App() {
         state={state}
       />
       {isWeeklyView ? 
-      <DayView/> :
-      <div>Weekly View</div>}
+      <div>Weekly View</div> :
+      <DayView/>}
       <Toggle handleToggle={_toggleWeeklyView}/>
     </div>
   );
