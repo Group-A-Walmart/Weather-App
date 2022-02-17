@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import '../styles/Toggle.css';
 
 const Toggle = (props) => {
@@ -7,8 +7,8 @@ const Toggle = (props) => {
     return (
         <div>
             <label className="switch">
-                <input type="checkbox" onClick={props.handleToggle} />
-                <span className="slider round"></span>
+            <input type="checkbox" onClick={props.handleToggle}/>
+            <span className="slider round"></span>
             </label>
         </div>
     )

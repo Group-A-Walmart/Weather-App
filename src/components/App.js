@@ -4,7 +4,7 @@ import { getWeather, getWeeklyWeather } from '../api';
 import SearchBar from "./SearchBar";
 import DayView from "./DayView";
 import WeeklyView from "./WeeklyView";
-import Toggle from './Toggle';
+import Toggle from "./Toggle";
 
 function App() {
   const [city, setCity] = useState("");
@@ -17,6 +17,7 @@ function App() {
   const handleCityChange = (e) => {
     setCity(e.target.value);
   }
+
 
   const handleStateChange = (e) => {
     setState(e.target.value);
@@ -43,6 +44,7 @@ function App() {
         city={city}
         state={state}
       />
+          
       {isWeeklyView ?
         <WeeklyView
           city={city}
