@@ -25,7 +25,7 @@ function App() {
 
   const handleKeyDown = async (e) => {
     if (e.keyCode === 13) {
-      const weatherData = await getWeather(city);
+      const weatherData = await getWeather(city, state);
       setTemp(weatherData.data.main.temp)
       getWeeklyWeather(city, state).then(res => setWeeklyView(res))
     }
@@ -44,7 +44,7 @@ function App() {
         city={city}
         state={state}
       />
-          
+
       {isWeeklyView ?
         <WeeklyView
           city={city}
