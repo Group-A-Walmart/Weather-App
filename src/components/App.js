@@ -12,7 +12,7 @@ function App() {
   const [isWeeklyView, setIsWeeklyView] = useState(false);
   const [weatherData, setWeatherData] = useState({});
   const [weeklyView, setWeeklyView] = useState({});
-  const _toggleWeeklyView = () => setIsWeeklyView(!setWeeklyView);
+  const _toggleWeeklyView = () => setIsWeeklyView(!isWeeklyView);
 
 
   const handleCityChange = (e) => {
