@@ -31,3 +31,20 @@ h2 {
   bottom: 15%;
   left: 15%;
 }
+
+.details {
+  position: absolute;
+  background-color: white;
+  right: -2px;
+  top: -4px;
+  width: 40%;
+  border-radius: 10px;
+  opacity: 0.7;
+  bottom: 0px;
+  text-align: left;
+}
+
+h3 {
+  padding-left: 16px;
+  color: black;
+}
