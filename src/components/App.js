@@ -2,36 +2,54 @@ import { useState } from 'react';
 import "../styles/App.css";
 import { getWeather, getWeeklyWeather } from '../api';
 import SearchBar from "./SearchBar";
+import DayView from "./DayView";
 import WeeklyView from "./WeeklyView";
 import Toggle from './Toggle';
 
 function App() {
   const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [isWeeklyView, setIsWeeklyView] = useState(false);
+  const _toggleWeeklyView = () => setWeeklyView(!isWeeklyView);
+  const [temp, setTemp] = useState(0.0);
   const [weeklyView, setWeeklyView] = useState({});
 
-  const handleChange = (e) => {
+  const handleCityChange = (e) => {
     setCity(e.target.value);
   }
 
-  const handleKeyDown = (e) => {
+  const handleStateChange = (e) => {
+    setState(e.target.value);
+  }
+
+  const handleKeyDown = async (e) => {
     if (e.keyCode === 13) {
-      getWeather(city);
-      getWeeklyWeather(city).then(res => setWeeklyView(res))
+      const weatherData = await getWeather(city);
+      setTemp(weatherData.data.main.temp)
+      getWeeklyWeather(city, state).then(res => setWeeklyView(res))
     }
+  }
+
+  const handleToggle = () => {
+    console.log("hello");
   }
 
   return (
     <div className="App">
-      <SearchBar 
-        handleChange={handleChange}
-        city={city}
+      <SearchBar
+        handleStateChange={handleStateChange}
+        handleCityChange={handleCityChange}
         handleKeyDown={handleKeyDown}
-      />
-      <WeeklyView 
         city={city}
-        weeklyView={weeklyView}
+        state={state}
       />
-      <Toggle />
+      {isWeeklyView ?
+        <WeeklyView
+          city={city}
+          weeklyView={weeklyView}
+        /> :
+        <DayView />}
+      <Toggle handleToggle={_toggleWeeklyView} />
     </div>
   );
 }

@@ -18,18 +18,18 @@ export const getWeather = async (city, state) => {
         });
 }
 
-export const getWeeklyWeather = async (city) => {
+export const getWeeklyWeather = async (city, state) => {
     let long;
     let lat;
     let cityName;
-    let state;
+    let cityState;
 
-    let weatherObj = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`)
+    let weatherObj = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},&limit=5&appid=${API_KEY}`)
         .then(res => {
             long = res.data[0].lon;
             lat = res.data[0].lat;
             cityName = res.data[0].name;
-            state = res.data[0].state;
+            cityState = res.data[0].state;
         });
 
     return axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${API_KEY}`)
