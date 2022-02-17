@@ -3,9 +3,10 @@ const axios = require('axios');
 export const API_KEY = '8d82379ea4c7f79c928129f715fd5e78';
 
 export const getWeather = async (city, state) => {
+    let parsableCity = city.replace(/ /, "+");
     let long;
     let lat;
-    let weatherObj = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},&limit=5&appid=${API_KEY}`)
+    let weatherObj = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${parsableCity},${state},&limit=5&appid=${API_KEY}`)
         .then(res => {
             console.log(res.data[0])
             long = res.data[0].lon;
@@ -21,10 +22,11 @@ export const getWeather = async (city, state) => {
 export const getWeeklyWeather = async (city, state) => {
     let long;
     let lat;
+    let parsableCity = city.replace(/ /, "+");
     let cityName;
     let cityState;
 
-    let weatherObj = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},&limit=5&appid=${API_KEY}`)
+    let weatherObj = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${parsableCity},${state},&limit=5&appid=${API_KEY}`)
         .then(res => {
             long = res.data[0].lon;
             lat = res.data[0].lat;
