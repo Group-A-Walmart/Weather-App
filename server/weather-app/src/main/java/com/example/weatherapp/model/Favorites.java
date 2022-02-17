@@ -22,4 +22,35 @@ public class Favorites {
     @Column
     @NotNull
     private String state;
+
+    public Favorites() {}
+
+    public Favorites(String city, String state) {
+        this.city = city;
+        this.state = state;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 }
