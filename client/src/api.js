@@ -1,4 +1,4 @@
-import {API_KEY} from "./apiKey";
+import { API_KEY } from "./apiKey";
 const axios = require('axios');
 
 let long;
@@ -8,12 +8,12 @@ let cityState;
 
 export const getLatAndLong = async (city, state) => {
     return await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},&limit=5&appid=${API_KEY}`)
-    .then(res => {
-        long = res.data[0].lon;
-        lat = res.data[0].lat;
-        cityName = res.data[0].name;
-        cityState = res.data[0].state;
-    })
+        .then(res => {
+            long = res.data[0].lon;
+            lat = res.data[0].lat;
+            cityName = res.data[0].name;
+            cityState = res.data[0].state;
+        })
 }
 
 export const getWeather = async (city, state) => {
