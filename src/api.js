@@ -17,7 +17,8 @@ export const getLatAndLong = async (city, state) => {
 }
 
 export const getWeather = async (city, state) => {
-    let coord = await getLatAndLong(city, state);
+    let parsableCity = city.replace(/ /, "+");
+    let coord = await getLatAndLong(parsableCity, state);
     return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}`)
         .then(res => {
             return res.data
