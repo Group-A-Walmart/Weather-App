@@ -10,9 +10,7 @@ function App() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [isWeeklyView, setIsWeeklyView] = useState(false);
-  const _toggleWeeklyView = () => setIsWeeklyView(!isWeeklyView);
-  const [weatherData, setWeatherData] = useState([]);
-  const [temp, setTemp] = useState(0.0);
+  const [weatherData, setWeatherData] = useState({});
   const [weeklyView, setWeeklyView] = useState({});
 
 
@@ -49,9 +47,9 @@ function App() {
           city={city}
           weeklyView={weeklyView}
         /> :
-        <DayView weatherData={weatherData}
+        Object.keys(weatherData).length>0 ? <DayView weatherData={weatherData}
           city={city}
-          state={state} />}
+          state={state} /> : <p>not found</p>}
       <Toggle handleToggle={_toggleWeeklyView} />
     </div>
   );
