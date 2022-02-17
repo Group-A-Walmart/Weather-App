@@ -1,4 +1,4 @@
-package com.example.weatherapp.entity;
+package com.example.weatherapp.model;
 
 import com.sun.istack.NotNull;
 import lombok.Data;
