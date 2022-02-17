@@ -3,15 +3,22 @@ package com.example.weatherapp.model;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-@Data
+@Table(name = "users")
 public class Users {
 
     @Id
+    @SequenceGenerator(
+            name = "usersSequence",
+            sequenceName = "usersSequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "usersSequence"
+    )
     @Column
     private long id;
 

@@ -1,21 +1,27 @@
 #WeeklyView {
     position: relative;
-    width: 80%;
+    width: 50%;
     margin: 25px auto;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 10px;
 }
 
 #WeeklyView .current-weather {
-    border: 1px solid black;
     width: 50%;
     margin: 15px auto;
     padding: 50px;
 }
 
-#WeeklyView .daily-weather {
+#WeeklyView .current-weather p {
+    color: white;
+    font-size: 2rem;
+}
+
+#WeeklyView .daily-weather, .current-weather {
     position: absolute;
     top: 30%;
     left: 20%;
-    color: white;
+    color: black;
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -23,14 +29,18 @@
 #WeeklyView .daily-weather-container {
     position: relative;
     text-align: center;
-    display: inline-flex;
+    /* display: inline-flex; */
     border-radius: 15px;
 }
 
 #WeeklyView .daily-weather-cards img {
     object-fit: cover;
     border-radius: 10px;
-    height: 200px;
+    height: 300px;
     width: auto;
-    filter: grayscale(.4);
+    /* filter: grayscale(.6); */
+}
+
+#WeeklyView .current-weather-card img {
+    width: 100%;
 }
