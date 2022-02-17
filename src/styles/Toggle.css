@@ -1,3 +1,18 @@
+.toggle {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 10%;
+}
+
+.toggle-text {
+  font-weight: bold;
+  padding-right: 10px;
+  position: relative;
+  top: 5px;
+}
+
 .switch {
     position: relative;
     display: inline-block;
@@ -18,7 +33,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #D8D8D8;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -30,13 +45,9 @@
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: #404F71;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
   }
   
   input:focus + .slider {
