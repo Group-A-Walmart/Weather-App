@@ -1,4 +1,4 @@
-import {API_KEY} from "./apiKey";
+import { API_KEY } from "../src/apikey.js";
 const axios = require('axios');
 
 let long;
