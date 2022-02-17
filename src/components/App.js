@@ -11,7 +11,7 @@ function App() {
   const [state, setState] = useState("");
   const [isWeeklyView, setWeeklyView] = useState(false);
   const _toggleWeeklyView = () => setWeeklyView(!isWeeklyView);
-  const [temp, setTemp] = useState(0.0);
+  const [weatherData, setWeatherData] = useState([]);
 
 
   const handleCityChange = (e) => {
@@ -25,8 +25,8 @@ function App() {
   const handleKeyDown = async(e) => {
       if (e.keyCode === 13) {
           const weatherData = await getWeather(city,state);
-          setTemp(weatherData.data.main.temp);
-          console.log(temp);
+          setWeatherData(weatherData);
+          console.log(weatherData);
       }
   }
   
@@ -45,7 +45,11 @@ function App() {
       />
       {isWeeklyView ? 
       <div>Weekly View</div> :
-      <DayView/>}
+      <DayView 
+        weatherData={weatherData}
+        city={city}
+        state={state}
+        />}
       <Toggle handleToggle={_toggleWeeklyView}/>
     </div>
   );
