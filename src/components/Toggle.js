@@ -1,8 +1,6 @@
-import { useState, useEffect} from 'react';
 import '../styles/Toggle.css';
 
 const Toggle = (props) => {
-    const [state, setState] = useState("");
 
     return (
         <div>

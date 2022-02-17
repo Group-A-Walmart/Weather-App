@@ -10,7 +10,6 @@ function App() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [isWeeklyView, setIsWeeklyView] = useState(false);
-  const _toggleWeeklyView = () => setWeeklyView(!isWeeklyView);
   const [weatherData, setWeatherData] = useState({});
   const [weeklyView, setWeeklyView] = useState({});
 
@@ -32,10 +31,6 @@ function App() {
           getWeeklyWeather(city, state).then(res => setWeeklyView(res))
           console.log(weatherData);
       }
-  }
-
-  const handleToggle = () => {
-    console.log("hello");
   }
 
   return (
