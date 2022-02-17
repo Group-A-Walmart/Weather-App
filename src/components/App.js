@@ -3,6 +3,7 @@ import "../styles/App.css";
 import { getWeather, getWeeklyWeather } from '../api';
 import SearchBar from "./SearchBar";
 import WeeklyView from "./WeeklyView";
+import Toggle from './Toggle';
 
 function App() {
   const [city, setCity] = useState("");
@@ -30,6 +31,7 @@ function App() {
         city={city}
         weeklyView={weeklyView}
       />
+      <Toggle />
     </div>
   );
 }

@@ -1,0 +1,36 @@
+#WeeklyView {
+    position: relative;
+    width: 80%;
+    margin: 25px auto;
+}
+
+#WeeklyView .current-weather {
+    border: 1px solid black;
+    width: 50%;
+    margin: 15px auto;
+    padding: 50px;
+}
+
+#WeeklyView .daily-weather {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#WeeklyView .daily-weather-container {
+    position: relative;
+    text-align: center;
+    display: inline-flex;
+    border-radius: 15px;
+}
+
+#WeeklyView .daily-weather-cards img {
+    object-fit: cover;
+    border-radius: 10px;
+    height: 200px;
+    width: auto;
+    filter: grayscale(.4);
+}
