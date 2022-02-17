@@ -2,7 +2,7 @@ import clouds from './images/clouds.jpg';
 import clear from './images/clear.jpg';
 import drizzle from './images/drizzle.jpg';
 import rain from './images/rain.jpg';
-import snow from './images/Snow.jpg';
+import snow from './images/snow.jpg';
 import thunderstorm from './images/thunderstorm.jpg';
 
 export const kelvinToFahrenheit = (kelvin) => {
