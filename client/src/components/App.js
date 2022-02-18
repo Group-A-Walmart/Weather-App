@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import DayView from "./DayView";
 import WeeklyView from "./WeeklyView";
 import Toggle from "./Toggle";
-import "../styles/App.css";
+import DayViewUndefined from "./DayViewUndefined"
 
 function App() {
   const [city, setCity] = useState("");
@@ -50,7 +50,7 @@ function App() {
         /> :
         Object.keys(weatherData).length > 0 ? <DayView weatherData={weatherData}
           city={city}
-          state={state} /> : <p>not found</p>}
+          state={state} /> : <DayViewUndefined/>}
       <Toggle handleToggle={_toggleWeeklyView} />
     </div >
   );

@@ -7,7 +7,6 @@ const SearchBar = (props) => {
     return (
         <div className="search-functions">
             <input className="searchbar" onChange={props.handleCityChange} value={props.city} placeholder="Enter City" onKeyDown={props.handleKeyDown} />
-            
             <select className="state-select" onChange={props.handleStateChange}>
                 {stateCodes.map(code =>
                 <option className="state-select-dropdown" key={stateCodes.indexOf(code)} value={code}>{code}</option>
