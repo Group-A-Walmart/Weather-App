@@ -33,3 +33,9 @@ export const getWeeklyWeather = async (city, state) => {
 export const addUser = async (user) => {
     axios.post('http://localhost:8080/users', user);
 }
+
+export const retrieveUser = async (user) => {
+    console.log(user);
+    axios.post('http://localhost:8080/userLogin', user)
+    .then(res => console.log(res.data.args));
+}
