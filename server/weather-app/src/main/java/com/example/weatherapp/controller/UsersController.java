@@ -17,4 +17,9 @@ public class UsersController {
     public void addUser(@RequestBody Users user) {
         usersService.addUser(user);
     }
+
+    @GetMapping("/users")
+    public Users retrieveUser(@RequestBody Users user) {
+        return usersService.retrieveUser(user);
+    }
 }
