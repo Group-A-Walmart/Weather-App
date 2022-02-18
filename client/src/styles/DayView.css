@@ -61,3 +61,17 @@ h4 {
 #day-view hr {
   width: 85%;
 }
+
+#day-view button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 10%;
+  padding-right: 100px;
+  padding-bottom: 16px;
+}
+
+#day-view button:hover {
+  cursor: pointer;
+}

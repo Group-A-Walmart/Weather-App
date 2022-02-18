@@ -12,7 +12,7 @@ const SearchBar = (props) => {
                 <option className="state-select-dropdown" key={stateCodes.indexOf(code)} value={code}>{code}</option>
                 )}
             </select>
-            <button onClick={props.handleEnter}>Enter</button>
+            <button onClick={props.handleEnter}>Submit</button>
         </div>
     )
 }

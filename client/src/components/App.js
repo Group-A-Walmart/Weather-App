@@ -4,7 +4,8 @@ import SearchBar from "./SearchBar";
 import DayView from "./DayView";
 import WeeklyView from "./WeeklyView";
 import Toggle from "./Toggle";
-import DayViewUndefined from "./DayViewUndefined"
+import DayViewUndefined from "./DayViewUndefined";
+import NavBar from './NavBar';
 
 function App() {
   const [city, setCity] = useState("");
@@ -58,6 +59,7 @@ function App() {
           city={city}
           state={state} /> : <DayViewUndefined/>}
       <Toggle handleToggle={_toggleWeeklyView} />
+      <NavBar/>
     </div >
   );
 }

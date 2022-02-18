@@ -1,0 +1,23 @@
+#navbar {
+  margin-bottom: 80px;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(71, 82, 94);
+}
+
+#navbar h1 {
+  float: right;
+  padding-right: 30px;
+  color: white;
+  font-size: 24px;
+}
+
+#navbar img {
+  float: right;
+  padding-bottom: 20px;
+  height: 99%;
+}
