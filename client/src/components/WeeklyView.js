@@ -2,7 +2,10 @@ import { kelvinToFahrenheit, getWeatherPic } from "../helpers";
 import "../styles/WeeklyView.css";
 
 const WeeklyView = (props) => {
-    let { daily, current } = props.weeklyView;
+    let { daily } = props.weeklyView;
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat","Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat","Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const date = new Date();
+    let currentDay;
     return (
         <div id="WeeklyView">
             <h1 style={{ color: "black" }}>8 Day Weather</h1>
@@ -12,21 +15,13 @@ const WeeklyView = (props) => {
                 return (
                     <div key={i} className="daily-weather-container">
                         <div className="daily-weather-cards">
-                            {i === 0 ?
-                                <div className="current-weather-card">
-                                    <img src={imgURL} />
-                                    <div className="current-weather">
-                                        <p>{Math.trunc(kelvinToFahrenheit(current.temp))}℉</p>
-                                    </div>
-                                </div> :
-                                <>
-                                    <img src={imgURL} />
-                                    <div className="daily-weather">
-                                        <p>Low: {Math.trunc(kelvinToFahrenheit(day.temp.min))}</p>
-                                        <p>High: {Math.trunc(kelvinToFahrenheit(day.temp.max))}</p>
-                                    </div>
-                                </>
-                            }
+                            <img src={imgURL} />
+                            <div className="daily-weather">
+                                <p id="day">{currentDay = days[date.getDay()+i]}</p>
+                                <p>High: {Math.trunc(kelvinToFahrenheit(day.temp.max))}°</p>
+                                <p>Low: {Math.trunc(kelvinToFahrenheit(day.temp.min))}°</p>
+                            </div>
+
                         </div>
                     </div>
                 )
