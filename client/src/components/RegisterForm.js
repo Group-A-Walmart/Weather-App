@@ -1,9 +1,12 @@
 import { useState } from "react"
-import { addUser } from "../api";
+import { addUser, retrieveUser } from "../api";
 import { useNavigate } from "react-router-dom";
 import "../styles/RegisterForm.css";
 
 const RegisterForm = (props) => {
+
+    const [signIn, setSignIn] = useState(false);
+    const _toggleSignIn = () => setSignIn(!signIn);
 
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
@@ -30,13 +33,41 @@ const RegisterForm = (props) => {
         setTimeout(() => navigate("/weather-app"), 800);
     }
 
+    const handleLogin = e => {
+        e.preventDefault();
+
+        let user = {
+            username,
+            password
+        }
+
+        retrieveUser(user);
+        setTimeout(() => navigate("/weather-app"), 800);
+    }
+
     return (
-        <form id="RegisterForm" onSubmit={handleSubmit}>
-            <h2>Register</h2>
-            <input value={username} placeholder="Username" onChange={handleUsernameChange} />
-            <input value={password} placeholder="Password" onChange={handlePasswordChange} />
-            <input type="submit" value="Register" />
-        </form>
+        <div>
+            {signIn ? 
+            <div>
+                <form id="RegisterForm" onSubmit={handleSubmit}>
+                    <h2>Register</h2>
+                    <input value={username} placeholder="Username" onChange={handleUsernameChange} />
+                    <input value={password} placeholder="Password" onChange={handlePasswordChange} />
+                    <input type="submit" value="Register" />
+                </form> 
+                <span onClick={_toggleSignIn}>Already registered? Login</span> 
+            </div> :
+            <div>
+                <form id="SignInForm" onSubmit={handleLogin}>
+                    <h2>Login</h2>
+                    <input value={username} placeholder="Username" onChange={handleUsernameChange} />
+                    <input value={password} placeholder="Password" onChange={handlePasswordChange} />
+                    <input type="submit" value="Login" />
+                </form>
+                <span onClick={_toggleSignIn}>Don't have an account? Create one</span>
+            </div>
+            }
+        </div>
     )
 }
 
