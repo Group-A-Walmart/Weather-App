@@ -18,7 +18,7 @@ public class UsersController {
         usersService.addUser(user);
     }
 
-    @GetMapping("/users")
+    @PostMapping("/userLogin")
     public Users retrieveUser(@RequestBody Users user) {
         return usersService.retrieveUser(user);
     }
