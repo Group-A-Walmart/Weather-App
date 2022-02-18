@@ -30,8 +30,13 @@ function App() {
       const weatherData = await getWeather(city, state);
       setWeatherData(weatherData);
       getWeeklyWeather(city, state).then(res => setWeeklyView(res))
-      console.log(weatherData);
     }
+  }
+
+  const handleEnter = async (e) => {
+    const weatherData = await getWeather(city, state);
+      setWeatherData(weatherData);
+      getWeeklyWeather(city, state).then(res => setWeeklyView(res))
   }
 
   return (
@@ -40,6 +45,7 @@ function App() {
         handleStateChange={handleStateChange}
         handleCityChange={handleCityChange}
         handleKeyDown={handleKeyDown}
+        handleEnter={handleEnter}
         city={city}
         state={state}
       />

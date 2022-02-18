@@ -21,7 +21,7 @@ const DayView = (props) => {
 
 
     return (
-        <div className="day-view">
+        <div id="day-view">
            <img className="background-image" src={imageUrl} alt="weather image"/>
            <h1>{newTemp}°</h1>
            <img className="icon" src={iconUrl} alt="current weather icon"/>
