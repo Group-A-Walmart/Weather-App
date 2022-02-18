@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import RegisterForm from './components/RegisterForm';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <Routes>
+      <Route path="/" element={<RegisterForm />} />
+      <Route path="/weather-app" element={<App />} />
+    </Routes>
+  </Router>
+  ,
   document.getElementById('root')
 );
 

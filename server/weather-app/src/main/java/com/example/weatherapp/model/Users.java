@@ -1,11 +1,19 @@
 package com.example.weatherapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.sun.istack.NotNull;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
 @Table(name = "users")
 public class Users {
 
@@ -30,34 +38,17 @@ public class Users {
     @NotNull
     private String password;
 
-    public Users() {}
-
-    public Users(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public Users() {
+        setUserFavorites(new HashSet<>());
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JoinTable(
+            name = "user_favorites",
+            joinColumns = @JoinColumn(name="users_id"),
+            inverseJoinColumns = @JoinColumn(name = "favorites_id", nullable = false, updatable = false)
+    )
+    @ToString.Exclude
+    public Set<Favorites> userFavorites;
 }
