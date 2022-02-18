@@ -17,6 +17,7 @@ const DayView = (props) => {
     const windSpeed = Math.round(props.weatherData.wind.speed);
     const iconcode = props.weatherData.weather[0].icon;
     let iconUrl =  "http://openweathermap.org/img/wn/" + iconcode + "@2x.png";
+    const favorites = ["Seattle, WA", "Atlanta, GA", "Phoenix, AZ"];
 
 
 
@@ -37,11 +38,9 @@ const DayView = (props) => {
                </div>
                 <div className="favorites">
                     <h3>Favorite Locations</h3>
-                    <h4>Location 1</h4>
-                    <h4>Location 2</h4>
-                    <h4>Location 3</h4>
+                    {favorites.map((fav, i) =>
+                    <button id={i}>{fav}</button>)}
                 </div>
-                
            </div>
         </div>
     )
