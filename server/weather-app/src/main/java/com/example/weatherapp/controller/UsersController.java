@@ -20,6 +20,10 @@ public class UsersController {
 
     @PostMapping("/userLogin")
     public Users retrieveUser(@RequestBody Users user) {
-        return usersService.retrieveUser(user);
+        try {
+            return usersService.retrieveUser(user);
+        } catch (Exception e) {
+            return new Users(-1, null, null, null);
+        }
     }
 }
