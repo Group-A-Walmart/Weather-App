@@ -51,8 +51,8 @@ const RegisterForm = (props) => {
             <div>
                 <form id="RegisterForm" onSubmit={handleSubmit}>
                     <h2>Register</h2>
-                    <input value={username} placeholder="Username" onChange={handleUsernameChange} />
-                    <input value={password} placeholder="Password" onChange={handlePasswordChange} />
+                    <input value={username} type="text" placeholder="Username" onChange={handleUsernameChange} />
+                    <input value={password} type="password" placeholder="Password" onChange={handlePasswordChange} />
                     <input type="submit" value="Register" />
                 </form> 
                 <span onClick={_toggleSignIn}>Already registered? Login</span> 
@@ -61,7 +61,7 @@ const RegisterForm = (props) => {
                 <form id="SignInForm" onSubmit={handleLogin}>
                     <h2>Login</h2>
                     <input value={username} placeholder="Username" onChange={handleUsernameChange} />
-                    <input value={password} placeholder="Password" onChange={handlePasswordChange} />
+                    <input value={password} type="password" placeholder="Password" onChange={handlePasswordChange} />
                     <input type="submit" value="Login" />
                 </form>
                 <span onClick={_toggleSignIn}>Don't have an account? Create one</span>
