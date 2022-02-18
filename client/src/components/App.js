@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import "../styles/App.css";
 import { getWeather, getWeeklyWeather } from '../api';
 import SearchBar from "./SearchBar";
 import DayView from "./DayView";
@@ -26,13 +25,13 @@ function App() {
   }
 
 
-  const handleKeyDown = async(e) => {
-      if (e.keyCode === 13) {
-          const weatherData = await getWeather(city,state);
-          setWeatherData(weatherData);
-          getWeeklyWeather(city, state).then(res => setWeeklyView(res))
-          console.log(weatherData);
-      }
+  const handleKeyDown = async (e) => {
+    if (e.keyCode === 13) {
+      const weatherData = await getWeather(city, state);
+      setWeatherData(weatherData);
+      getWeeklyWeather(city, state).then(res => setWeeklyView(res))
+      console.log(weatherData);
+    }
   }
 
   return (
@@ -49,11 +48,11 @@ function App() {
           city={city}
           weeklyView={weeklyView}
         /> :
-        Object.keys(weatherData).length>0 ? <DayView weatherData={weatherData}
+        Object.keys(weatherData).length > 0 ? <DayView weatherData={weatherData}
           city={city}
           state={state} /> : <DayViewUndefined/>}
       <Toggle handleToggle={_toggleWeeklyView} />
-    </div>
+    </div >
   );
 }
 

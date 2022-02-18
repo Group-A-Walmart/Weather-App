@@ -29,3 +29,7 @@ export const getWeeklyWeather = async (city, state) => {
     return axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${API_KEY}`)
         .then(res => ({ ...res.data, cityState, cityName }));
 }
+
+export const addUser = async (user) => {
+    axios.post('http://localhost:8080/users', user);
+}

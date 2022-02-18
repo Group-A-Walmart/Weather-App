@@ -1,14 +1,19 @@
 package com.example.weatherapp.model;
 
 import com.sun.istack.NotNull;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@Table(name = "favorites")
 public class Favorites {
 
     @Id
